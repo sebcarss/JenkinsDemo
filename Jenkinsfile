@@ -1,9 +1,11 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+	// Run this stage against all instances
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                echo 'Building Project'
+                bat 'gradle build'
             }
         }
     }
